@@ -24,6 +24,10 @@ namespace AdvancedWebsite.Models
             options.Password.RequireUppercase = false;
             options.Password.RequiredLength = 8;
             options.Password.RequireNonAlphanumeric = false;
+
+            // lock out options
+            options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
+            options.Lockout.MaxFailedAccessAttempts = 5;
         }
 
 
