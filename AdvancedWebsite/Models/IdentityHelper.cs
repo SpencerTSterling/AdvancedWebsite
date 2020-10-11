@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
- Issue#1-CreateRoles
 using Microsoft.Extensions.DependencyInjection;
-
- master
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +9,9 @@ namespace AdvancedWebsite.Models
 {
     public static class IdentityHelper
     {
-Issue#1-CreateRoles
         public const string Instructor = "Instructor";
         public const string Student = "Student";
 
- master
         /// <summary>
         /// Sets the IdentityOptions 
         /// </summary>
@@ -38,8 +33,6 @@ Issue#1-CreateRoles
             options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
             options.Lockout.MaxFailedAccessAttempts = 5;
         }
-
-Issue#1-CreateRoles
         /// <summary>
         /// Creates roles passed in as strings
         /// </summary>
@@ -61,8 +54,5 @@ Issue#1-CreateRoles
                 }
             }
         }
-
- master
-
     }
 }

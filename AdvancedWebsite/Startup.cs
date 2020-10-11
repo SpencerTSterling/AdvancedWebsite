@@ -32,12 +32,9 @@ namespace AdvancedWebsite
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(IdentityHelper.SetIdentityOptions)
-Issue#1-CreateRoles
                     .AddRoles<IdentityRole>()
+                    .AddEntityFrameworkStores<ApplicationDbContext>()
                     .AddEntityFrameworkStores<ApplicationDbContext>();
-
-                .AddEntityFrameworkStores<ApplicationDbContext>();
- master
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
