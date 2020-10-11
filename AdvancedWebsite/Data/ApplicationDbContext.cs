@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using AdvancedWebsite.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,5 +13,9 @@ namespace AdvancedWebsite.Data
             : base(options)
         {
         }
+
+        //db set for video lessons
+        public DbSet<VideoLesson> VideoLessons { get; set; }
+
     }
 }
