@@ -54,5 +54,27 @@ namespace AdvancedWebsite.Models
                 }
             }
         }
+
+        internal static async Task CreateDefaultInstructor(IServiceProvider serviceProvider)
+        {
+            const string email = "computerprogramming@cptc.edu";
+            const string username = "instructor";
+            const string password = "programming";
+
+            var userManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
+            // check if any users are in the database
+            if(userManager.Users.Count() == 0)
+            {
+                IdentityUser instructor = new IdentityUser()
+                {
+                    Email = email,
+                    UserName = username,
+                };
+                // create the instructor
+                await userManager.CreateAsync(instructor, password);
+                // add them to instructor role
+                await userManager.AddToRoleAsync(instructor, Instructor);
+            }
+        }
     }
 }
